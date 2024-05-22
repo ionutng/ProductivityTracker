@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ProductivityTracker": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Folder\\C# Projects\\Own\\ProductivityTracker\\ProductivityTracker\\"
+    }
+  }
+}

@@ -74,6 +74,7 @@
             studyBtn.TabIndex = 3;
             studyBtn.Text = "Study";
             studyBtn.UseVisualStyleBackColor = true;
+            studyBtn.Click += studyBtn_Click;
             // 
             // workoutBtn
             // 

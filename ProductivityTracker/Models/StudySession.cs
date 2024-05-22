@@ -1,6 +1,6 @@
 ﻿namespace ProductivityTracker.Models;
 
-internal class StudySession
+public class StudySession
 {
     public int Id { get; set; }
     public DateOnly Date { get; set; }
