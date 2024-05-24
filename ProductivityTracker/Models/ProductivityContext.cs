@@ -18,5 +18,6 @@ internal class ProductivityContext : DbContext
             .AddJsonFile("appsettings.json")
             .Build();
         optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+        optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
     }
 }

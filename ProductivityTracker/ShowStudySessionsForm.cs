@@ -1,5 +1,4 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using ProductivityTracker.Models;
+﻿using ProductivityTracker.Models;
 
 namespace ProductivityTracker
 {

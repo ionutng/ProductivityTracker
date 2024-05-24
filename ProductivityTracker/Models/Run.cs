@@ -1,6 +1,6 @@
 ﻿namespace ProductivityTracker.Models;
 
-internal class Run
+public class Run
 {
     public int Id { get; set; }
     public float Distance { get; set; }

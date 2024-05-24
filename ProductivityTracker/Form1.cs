@@ -28,5 +28,14 @@ namespace ProductivityTracker
             // preventing the application from remaining in memory with the first form hidden.
             crudOperationsForm.FormClosed += (s, args) => Close();
         }
+
+        private void workoutBtn_Click(object sender, EventArgs e)
+        {
+            CrudOperationsForm crudOperationsForm = new("Workout");
+            Hide();
+            crudOperationsForm.Show();
+
+            crudOperationsForm.FormClosed += (s, args) => Close();
+        }
     }
 }

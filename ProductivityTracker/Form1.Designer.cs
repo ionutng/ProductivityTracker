@@ -84,6 +84,7 @@
             workoutBtn.TabIndex = 4;
             workoutBtn.Text = "Workout";
             workoutBtn.UseVisualStyleBackColor = true;
+            workoutBtn.Click += workoutBtn_Click;
             // 
             // readBtn
             // 
