@@ -37,5 +37,14 @@ namespace ProductivityTracker
 
             crudOperationsForm.FormClosed += (s, args) => Close();
         }
+
+        private void readBtn_Click(object sender, EventArgs e)
+        {
+            CrudOperationsForm crudOperationsForm = new("Reading");
+            Hide();
+            crudOperationsForm.Show();
+
+            crudOperationsForm.FormClosed += (s, args) => Close();
+        }
     }
 }

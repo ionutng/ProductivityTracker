@@ -94,6 +94,7 @@
             readBtn.TabIndex = 5;
             readBtn.Text = "Read";
             readBtn.UseVisualStyleBackColor = true;
+            readBtn.Click += readBtn_Click;
             // 
             // Form1
             // 

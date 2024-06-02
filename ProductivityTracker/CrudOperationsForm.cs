@@ -9,7 +9,7 @@ namespace ProductivityTracker
         {
             InitializeComponent();
             taskLabel.Text = $"{task} Operations";
-            taskLabel.Location = new Point(250, 20);
+            taskLabel.Location = new Point(270, 20);
             _task = task;
         }
 
@@ -48,6 +48,15 @@ namespace ProductivityTracker
 
                 addWorkoutForm.FormClosed += (s, args) => Close();
             }
+            else
+            {
+                var readingSession = new ReadingSession { Title = "" };
+                AddReadingSessionForm addReadingSessionForm = new(readingSession);
+                Hide();
+                addReadingSessionForm.Show();
+
+                addReadingSessionForm.FormClosed += (s, args) => Close();
+            }
         }
 
         private void showBtn_Click(object sender, EventArgs e)
@@ -67,6 +76,14 @@ namespace ProductivityTracker
                 showWorkoutsForm.Show();
 
                 showWorkoutsForm.FormClosed += (s, args) => Close();
+            }
+            else
+            {
+                ShowReadingSessionsForm showReadingSessionsForm = new();
+                Hide();
+                showReadingSessionsForm.Show();
+
+                showReadingSessionsForm.FormClosed += (s, args) => Close();
             }
         }
 
@@ -88,6 +105,14 @@ namespace ProductivityTracker
 
                 showWorkoutsForm.FormClosed += (s, args) => Close();
             }
+            else
+            {
+                ShowReadingSessionsForm showReadingSessionsForm = new();
+                Hide();
+                showReadingSessionsForm.Show();
+
+                showReadingSessionsForm.FormClosed += (s, args) => Close();
+            }
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
@@ -107,6 +132,14 @@ namespace ProductivityTracker
                 showWorkoutsForm.Show();
 
                 showWorkoutsForm.FormClosed += (s, args) => Close();
+            }
+            else
+            {
+                ShowReadingSessionsForm showReadingSessionsForm = new();
+                Hide();
+                showReadingSessionsForm.Show();
+
+                showReadingSessionsForm.FormClosed += (s, args) => Close();
             }
         }
     }
