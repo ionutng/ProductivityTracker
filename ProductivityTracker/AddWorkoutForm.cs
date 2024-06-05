@@ -56,6 +56,10 @@ namespace ProductivityTracker
                 addWorkoutBtn.Text = "Edit Workout";
                 Text = "EditWorkoutForm";
                 deleteWorkoutBtn.Visible = true;
+                editExerciseBtn.Visible = true;
+                deleteExerciseBtn.Visible = true;
+                editRunBtn.Visible = true;
+                deleteRunBtn.Visible = true;
             }
         }
 
@@ -77,6 +81,8 @@ namespace ProductivityTracker
             var sets = int.Parse(setsNud.Value.ToString());
             var reps = int.Parse(repsNud.Value.ToString());
 
+            if (!Validation.ExerciseValidation(name, sets, reps)) return;
+
             var exercise = new Exercise
             {
                 Name = name,
@@ -94,13 +100,15 @@ namespace ProductivityTracker
 
         private void addRunBtn_Click(object sender, EventArgs e)
         {
-            var distance = float.Parse(distanceTb.Text.Trim());
+            var distance = distanceTb.Text.Trim();
             var time = TimeSpan.Parse(timeDtp.Value.ToString("HH:mm:ss"));
             var pace = TimeSpan.Parse(paceDtp.Value.ToString("HH:mm"));
 
+            if(!Validation.RunValidation(distance, time, pace)) return;
+
             var run = new Run
             {
-                Distance = distance,
+                Distance = float.Parse(distance),
                 Time = time,
                 Pace = pace
             };
@@ -120,6 +128,8 @@ namespace ProductivityTracker
             var date = DateOnly.Parse(dateDtp.Value.ToString("dd-MMM-yyyy"));
             var startTime = TimeOnly.Parse(startTimeDtp.Value.ToString("HH:mm"));
             var endTime = TimeOnly.Parse(endTimeDtp.Value.ToString("HH:mm"));
+
+            if (!Validation.DateValidation(date, startTime, endTime)) return;
 
             if (addWorkoutBtn.Text == "Add Workout")
             {
@@ -158,17 +168,19 @@ namespace ProductivityTracker
 
         private void exerciseLb_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            if (exerciseLb.SelectedItem != null)
+            if (_workout.Id != 0)
             {
-                var exercise = GetSelectedExerciseFromListBox();
-                nameTb.Text = exercise!.Name;
-                setsNud.Value = exercise.Sets;
-                repsNud.Value = exercise.Reps;
-            }
-            else
-            {
-                MessageBox.Show("Please select an exercise in order to edit or delete!", Name = "Warning");
+                if (exerciseLb.SelectedItem != null)
+                {
+                    var exercise = GetSelectedExerciseFromListBox();
+                    nameTb.Text = exercise!.Name;
+                    setsNud.Value = exercise.Sets;
+                    repsNud.Value = exercise.Reps;
+                }
+                else
+                {
+                    MessageBox.Show("Please select an exercise in order to edit or delete!", Name = "Warning");
+                }
             }
         }
 
@@ -200,17 +212,20 @@ namespace ProductivityTracker
 
         private void runLb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (runLb.SelectedItem != null)
+            if (_workout.Id != 0)
             {
-                var run = GetSelectedRunFromListBox();
+                if (runLb.SelectedItem != null)
+                {
+                    var run = GetSelectedRunFromListBox();
 
-                distanceTb.Text = run!.Distance.ToString();
-                timeDtp.Value = new DateTime(new DateOnly(2024, 1, 1), TimeOnly.FromTimeSpan(run.Time));
-                paceDtp.Value = new DateTime(new DateOnly(2024, 1, 1), TimeOnly.FromTimeSpan(run.Pace));
-            }
-            else
-            {
-                MessageBox.Show("Please select an exercise in order to edit or delete!", Name = "Warning");
+                    distanceTb.Text = run!.Distance.ToString();
+                    timeDtp.Value = new DateTime(new DateOnly(2024, 1, 1), TimeOnly.FromTimeSpan(run.Time));
+                    paceDtp.Value = new DateTime(new DateOnly(2024, 1, 1), TimeOnly.FromTimeSpan(run.Pace));
+                }
+                else
+                {
+                    MessageBox.Show("Please select an exercise in order to edit or delete!", Name = "Warning");
+                }
             }
         }
 

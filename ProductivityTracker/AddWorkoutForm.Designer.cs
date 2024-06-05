@@ -308,6 +308,7 @@
             editExerciseBtn.TabIndex = 39;
             editExerciseBtn.Text = "Edit Exercise";
             editExerciseBtn.UseVisualStyleBackColor = true;
+            editExerciseBtn.Visible = false;
             editExerciseBtn.Click += editExerciseBtn_Click;
             // 
             // deleteExerciseBtn
@@ -318,6 +319,7 @@
             deleteExerciseBtn.TabIndex = 40;
             deleteExerciseBtn.Text = "Delete Exercise";
             deleteExerciseBtn.UseVisualStyleBackColor = true;
+            deleteExerciseBtn.Visible = false;
             deleteExerciseBtn.Click += deleteExerciseBtn_Click_1;
             // 
             // deleteRunBtn
@@ -328,6 +330,7 @@
             deleteRunBtn.TabIndex = 42;
             deleteRunBtn.Text = "Delete Run";
             deleteRunBtn.UseVisualStyleBackColor = true;
+            deleteRunBtn.Visible = false;
             deleteRunBtn.Click += deleteRunBtn_Click;
             // 
             // editRunBtn
@@ -338,6 +341,7 @@
             editRunBtn.TabIndex = 41;
             editRunBtn.Text = "Edit Run";
             editRunBtn.UseVisualStyleBackColor = true;
+            editRunBtn.Visible = false;
             editRunBtn.Click += editRunBtn_Click;
             // 
             // AddWorkoutForm

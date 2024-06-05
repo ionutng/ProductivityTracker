@@ -217,6 +217,7 @@
             endTimeDtp.Name = "endTimeDtp";
             endTimeDtp.Size = new Size(117, 35);
             endTimeDtp.TabIndex = 25;
+            endTimeDtp.Value = new DateTime(2024, 6, 5, 12, 3, 0, 0);
             // 
             // endTimeLabel
             // 
@@ -233,6 +234,7 @@
             startTimeDtp.Name = "startTimeDtp";
             startTimeDtp.Size = new Size(117, 35);
             startTimeDtp.TabIndex = 23;
+            startTimeDtp.Value = new DateTime(2024, 6, 5, 12, 2, 0, 0);
             // 
             // startTimeLabel
             // 

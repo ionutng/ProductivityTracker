@@ -42,6 +42,19 @@ namespace ProductivityTracker
                 Text = "EditReadingSessionForm";
                 readingSessionLabel.Text = "Edit a Reading Session";
                 deleteReadingSessionBtn.Visible = true;
+
+                if (_readingSession.TotalPages == _readingSession.PagesRead)
+                {
+                    completedRb.Checked = true;
+                }
+                else if (_readingSession.TotalPages > _readingSession.PagesRead && _readingSession.PagesRead != 0)
+                {
+                    readingRb.Checked = true;
+                }
+                else if (_readingSession.PagesRead == 0)
+                {
+                    planToReadRb.Checked = true;
+                }
             }
         }
 
@@ -70,6 +83,11 @@ namespace ProductivityTracker
             if (readingRb.Checked)
             {
                 pagesRead = int.Parse(pagesReadNud.Value.ToString());
+                if (pagesRead == 0)
+                {
+                    MessageBox.Show("You cannot input 0 pages read when reading status is selected!", Name = "Warning");
+                    return;
+                }
             }
             else if (completedRb.Checked)
             {
@@ -79,6 +97,14 @@ namespace ProductivityTracker
             {
                 pagesRead = 0;
             }
+            else
+            {
+                MessageBox.Show("Please choose a reading status!", Name = "Warning");
+                return;
+            }
+
+            if (!Validation.ReadingSessionValidation(title, authors, pages, pagesRead)) return;
+            if (!Validation.DateValidation(date, startTime, endTime)) return;
 
             var readingSession = new ReadingSession { Title = "" };
 

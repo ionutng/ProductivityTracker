@@ -57,6 +57,8 @@ namespace ProductivityTracker
             var startTime = TimeOnly.Parse(startTimeDtp.Value.ToString("HH:mm"));
             var endTime = TimeOnly.Parse(endTimeDtp.Value.ToString("HH:mm"));
 
+            if (!Validation.DateValidation(date, startTime, endTime)) return;
+
             if (addStudySessionBtn.Text == "Add Study Session")
             {
                 var study = new StudySession
